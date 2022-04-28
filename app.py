@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Created on Thu Apr 28 13:28:27 2022
 
 @author: Kedar
 """
+
 from keras import backend as K
 from tensorflow.keras.models import Model, load_model
 import streamlit as st
@@ -15,56 +15,14 @@ import string
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 import pandas as pd
-
-
 import plotly.express as px
 
 
-MODEL_PATH = r"bert_model.pkl"
-MAX_NB_WORDS = 100000    # max no. of words for tokenizer
-MAX_SEQUENCE_LENGTH = 200 # max length of each entry (sentence), including padding
-VALIDATION_SPLIT = 0.2   # data for validation (not used in training)
-EMBEDDING_DIM = 100
-# tokenizer_file = "tokenizer.pickle"
-
-wordnet = WordNetLemmatizer()
-regex = re.compile('[%s]' % re.escape(string.punctuation))
 
 model_list = ["Logistic Regression",'Multinomial Naive Bayes Classifier','Gradient Boost Classifier','RFC Classifier']
-model_file_list = [r"LR_model.pkl",r"MNVBC_model.pkl",r"GBC_model.pkl",r"RFC_model.pkl"]
+model_file_list = [r"C:/Users/Kedar/Downloads/LR_model.pkl",r"C:/Users/Kedar/Downloads/MNVBC_model.pkl",r"C:/Users/Kedar/Downloads/GBC_model.pkl",r"C:/Users/Kedar/Downloads/RFC_model.pkl"]
 
-# with open(tokenizer_file, 'rb') as handle:
-#     tokenizer = pickle.load(handle)
 
-def basic_text_cleaning(line_from_column):
-    # This function takes in a string, not a list or an array for the arg line_from_column
-
-    tokenized_doc = word_tokenize(line_from_column)
-
-    new_review = []
-    for token in tokenized_doc:
-        new_token = regex.sub(u'', token)
-        if not new_token == u'':
-            new_review.append(new_token)
-
-    new_term_vector = []
-    for word in new_review:
-        if not word in stopwords.words('english'):
-            new_term_vector.append(word)
-
-    final_doc = []
-    for word in new_term_vector:
-        final_doc.append(wordnet.lemmatize(word))
-
-    return ' '.join(final_doc)
-
-@st.cache(allow_output_mutation=True)
-def Load_model():
-    model = load_model(MODEL_PATH)
-    model._make_predict_function()
-    model.summary()  # included to make it visible when model is reloaded
-    session = K.get_session()
-    return model, session
 
 if __name__ == '__main__':
     st.title('Fake News Finder')
@@ -86,10 +44,9 @@ if __name__ == '__main__':
          """,
          unsafe_allow_html=True
      )
-    model, session = Load_model()
     if predict_btt:
 
-        st.header("Prediction using 4 traditional machine learning model")
+        st.header("Prediction using the 4 models")
         predictions = []
         for model in model_file_list:
             filename = model
