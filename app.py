@@ -49,8 +49,7 @@ if __name__ == '__main__':
         st.header("Prediction using the 4 models")
         predictions = []
         for model in model_file_list:
-            filename = model
-            model1 = pickle.load(open(filename, "rb"))
+            model1 = pickle.load(open(model, "rb"))
             prediction = model1.predict([sentence])[0]
             predictions.append(prediction)
 
