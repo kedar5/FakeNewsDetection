@@ -20,7 +20,7 @@ import plotly.express as px
 
 
 model_list = ["Logistic Regression",'Multinomial Naive Bayes Classifier','Gradient Boost Classifier','RFC Classifier']
-model_file_list = [r"C:/Users/Kedar/Downloads/LR_model.pkl",r"C:/Users/Kedar/Downloads/MNVBC_model.pkl",r"C:/Users/Kedar/Downloads/GBC_model.pkl",r"C:/Users/Kedar/Downloads/RFC_model.pkl"]
+model_file_list = [r"LR_model.pkl",r"MNVBC_model.pkl",r"GBC_model.pkl",r"RFC_model.pkl"]
 
 
 
