@@ -50,8 +50,8 @@ if __name__ == '__main__':
         predictions = []
         for model in model_file_list:
             filename = model
-            model = pickle.load(open(filename, "rb"))
-            prediction = model.predict([sentence])[0]
+            model1 = pickle.load(open(filename, "rb"))
+            prediction = model1.predict([sentence])[0]
             predictions.append(prediction)
 
         dict_prediction = {"Models":model_list,"predictions":predictions}
