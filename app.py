@@ -20,7 +20,7 @@ import pandas as pd
 import plotly.express as px
 
 
-MODEL_PATH = r"C:/Users/Kedar/Downloads/bert_model.pkl"
+MODEL_PATH = r"/bert_model.pkl"
 MAX_NB_WORDS = 100000    # max no. of words for tokenizer
 MAX_SEQUENCE_LENGTH = 200 # max length of each entry (sentence), including padding
 VALIDATION_SPLIT = 0.2   # data for validation (not used in training)
@@ -31,7 +31,7 @@ wordnet = WordNetLemmatizer()
 regex = re.compile('[%s]' % re.escape(string.punctuation))
 
 model_list = ["Logistic Regression",'Multinomial Naive Bayes Classifier','Gradient Boost Classifier','RFC Classifier']
-model_file_list = [r"C:/Users/Kedar/Downloads/LR_model.pkl",r"C:/Users/Kedar/Downloads/MNVBC_model.pkl",r"C:/Users/Kedar/Downloads/GBC_model.pkl",r"C:/Users/Kedar/Downloads/RFC_model.pkl"]
+model_file_list = [r"/LR_model.pkl",r"/MNVBC_model.pkl",r"/GBC_model.pkl",r"/RFC_model.pkl"]
 
 # with open(tokenizer_file, 'rb') as handle:
 #     tokenizer = pickle.load(handle)
