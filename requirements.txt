@@ -1,5 +1,5 @@
 scikit-learn==1.0.2
-tensorflow==2.8.0
+tensorflow==2.9.3
 nltk==3.7
 plotly==5.6.0
 click==8.0.4
